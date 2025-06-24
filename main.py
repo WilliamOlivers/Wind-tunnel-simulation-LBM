@@ -21,11 +21,11 @@ def create_cylinder():
 def create_rectangle():
     barrier = np.zeros((height, width), dtype=bool)
     center_x, center_y = width//4, height//2
-    length_x, length_y = 16, 12  # largeur et hauteur du rectangle
+    length_x, length_y = 16, 12  # width and height of the rectangle
     
     y, x = np.ogrid[:height, :width]
     
-    # Condition pour être DANS le rectangle
+    # Conditions to be in the rectangle
     mask = (abs(x - center_x) <= length_x//2) & (abs(y - center_y) <= length_y//2)
     
     barrier[mask] = True
@@ -143,7 +143,7 @@ ax.set_xlim(0, width)
 ax.set_ylim(0, height)
 
 def animate(frame):
-    for _ in range(20):  # 20 fois par secondes
+    for _ in range(20):  # 20 times per seconds
         stream()
         collide()
     
